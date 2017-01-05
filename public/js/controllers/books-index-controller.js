@@ -32,6 +32,7 @@ angular.module('BookApp')
 			$('#' + bookId + ' .smallPrint').toggle(); // hide/show author (small)
 			$('#' + bookId + ' .editable').attr('contenteditable', 'false'); // makes the book fields not editable
 			$('#' + bookId + ' .editable').removeClass('editField'); // removes class that makes the fields look editable
+			$('#' + bookId + ' .editable').removeClass('noLinking'); // removes class that makes the fields not look clickable
 			$('#' + bookId + ' .editButton').show(); // show the editButton
 			$('#' + bookId + ' .saveButton').hide(); // hide the saveButton
 		};
