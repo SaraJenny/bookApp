@@ -100,7 +100,7 @@ angular.module('BookApp')
 					//show the editButton
 					$('#' + bookId + ' .editButton').show();
 					// get updated booklist from api
-					$http.get('http://localhost:3000/api/books/' + user).success(function(data){
+					$http.get('https://sape-i-heart-books.herokuapp.com/api/books/' + user).success(function(data){
 						$scope.bookList = data;
 					});
 					// show message
