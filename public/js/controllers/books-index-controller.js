@@ -9,7 +9,7 @@ angular.module('BookApp')
 			$scope.filters = {}; // set empty filtering (use later to filter grade/genre/author)
 			$scope.sortBy = '-grade'; // set default value for sort
 			// get booklist from api
-			$http.get('http://localhost:3000/api/books/' + user).success(function(data){
+			$http.get('https://sape-i-heart-books.herokuapp.com/api/books/' + user).success(function(data){
 				$scope.bookList = data;
 			});
 		}
@@ -85,7 +85,7 @@ angular.module('BookApp')
 			}
 			// if there is no validation errors, save the data to the db
 			if (hasError == false) {
-				$http.put('http://localhost:3000/api/update/' + bookId, {
+				$http.put('https://sape-i-heart-books.herokuapp.com/api/update/' + bookId, {
 					title: title,
 					grade: grade,
 					author: author,
@@ -112,9 +112,9 @@ angular.module('BookApp')
 		// click on deleteButton confirms the action and deletes from db
 		$scope.deleteBook = function(bookId) {
 			if (confirm("Är du säker på att du vill radera boken från din lista?")) {
-				$http.delete('http://localhost:3000/api/update/' + bookId).success(function(res){
+				$http.delete('https://sape-i-heart-books.herokuapp.com/api/update/' + bookId).success(function(res){
 					// get updated booklist from api
-					$http.get('http://localhost:3000/api/books/' + user).success(function(data){
+					$http.get('https://sape-i-heart-books.herokuapp.com/api/books/' + user).success(function(data){
 						$scope.bookList = data;
 					});
 					// show message

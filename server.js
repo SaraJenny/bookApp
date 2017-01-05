@@ -8,9 +8,8 @@ app.use(express.static('public'));
 
 // connect to database
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/bookApp');
-//mongoose.connect('mongodb://todouser:hjkdfg@ds141937.mlab.com:41937/todolist');
-//mongoose.connect(process.env.MONGODB_URI);
+//mongoose.connect('mongodb://localhost:27017/bookApp');
+mongoose.connect(process.env.MONGODB_URI);
 
 // require the schema
 var BookSchema = require('./models/bookApp');

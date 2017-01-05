@@ -7,7 +7,7 @@ angular.module('BookApp')
 		}
 		else {
 			// get booklist from api
-			$http.get('http://localhost:3000/api/books/' + user).success(function(data){
+			$http.get('https://sape-i-heart-books.herokuapp.com/api/books/' + user).success(function(data){
 				$scope.bookList = data;
 				$scope.firstname = data.firstname; // assign value to ng-model firstname
 				$scope.lastname = data.lastname; // assign value to ng-model lastname
@@ -41,7 +41,7 @@ angular.module('BookApp')
 	        }
 			// if there is no validation errors, save the data to the db
 			if (hasError == false) {
-				$http.put('http://localhost:3000/api/users/' + user, {
+				$http.put('https://sape-i-heart-books.herokuapp.com/api/users/' + user, {
 					firstname: $scope.firstname,
 					lastname: $scope.lastname,
 					email: $scope.email,

@@ -22,7 +22,7 @@ angular.module('BookApp')
 			// if there's no errors, check if the email exists in the db
 			if (hasError == false) {
 				// get user from api
-				$http.get('http://localhost:3000/api/user/' + $scope.email).success(function(data){
+				$http.get('https://sape-i-heart-books.herokuapp.com/api/user/' + $scope.email).success(function(data){
 					// if the email doesn't exist in the db
 					if (data == null) {
 						$('<p class="errorMessage">Felaktig e-post</p>').insertAfter('#email');

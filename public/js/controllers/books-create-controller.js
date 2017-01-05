@@ -39,7 +39,7 @@ angular.module('BookApp')
 			// if there is no validation errors, save the data to the db
 			if (hasError == false) {
 		    	$http({
-			        url: 'http://localhost:3000/api/books/' + user,
+			        url: 'https://sape-i-heart-books.herokuapp.com/api/books/' + user,
 			        method: 'PUT',
 			        data: { 
 			            title: $scope.title,
