@@ -1,0 +1,12 @@
+			<section class="container" data-ng-controller="UsersLoginController as loginCtrl">
+				<h2>Logga in</h2>
+				<!-- Login form: with ng-model on fields to connect with $scope -->
+				<form>
+					<label for="email">E-post</label>
+					<input type="email" name="email" id="email" data-ng-model="email">
+					<label for="password">Lösenord</label>
+					<input type="password" name="password" id="password" data-ng-model="password">
+					<!-- on click: validate user login -->
+					<button class="loginButton" data-ng-click="loginUser()">Logga in</button>
+				</form>
+			</section>

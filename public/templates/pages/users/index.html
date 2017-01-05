@@ -1,0 +1,16 @@
+			<section class="container" data-ng-controller="UsersIndexController as indexCtrl">
+				<h2>Mitt konto</h2>
+				<!-- Edit user form: with ng-model on fields to connect with $scope -->
+				<form>
+					<label for="firstname">Förnamn</label>
+					<input type="text" name="firstname" id="firstname" data-ng-model="firstname">
+					<label for="lastname">Efternamn</label>
+					<input type="text" name="lastname" id="lastname" data-ng-model="lastname">
+					<label for="email">E-post</label>
+					<input type="email" name="email" id="email" data-ng-model="email">
+					<label for="password">Lösenord</label>
+					<input type="password" name="password" id="password" data-ng-model="password">
+					<!-- on click: validate user input and save to db-->
+					<button class="saveUserButton" data-ng-click="saveUser()">Spara</button>
+				</form>
+			</section>

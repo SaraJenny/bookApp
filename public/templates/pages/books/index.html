@@ -1,0 +1,56 @@
+			<section class="container" data-ng-controller="BooksIndexController as indexCtrl">
+				<h2>Min boklista</h2>
+				<!-- Filter form -->
+				<form>
+					<label for="sort" class="hidden">Sortera</label>
+					<div class="custom-selectbox">
+						<!-- ng-model to determine sort order -->
+						<select id="sort" data-ng-model="sortBy">
+							<option value="-grade">Betyg fallande</option>
+							<option value="grade">Betyg stigande</option>
+							<option value="-genre">Genre</option>
+							<option value="title">Titel A-Ö</option>
+							<option value="-title">Titel Ö-A</option>
+							<option value="author">Författare A-Ö</option>
+							<option value="-author">Författare Ö-A</option>
+							<option value="-done">Utläst fallande</option>
+							<option value="done">Utläst stigande</option>
+							<option value="-edited">Ändrad fallande</option>
+							<option value="edited">Ändrad stigande</option>
+						</select>
+					</div>
+					<!-- ng-model to filter on input -->
+					<input type="text" name="filter" id="filter" data-ng-model="filterQuery" placeholder="Sök ...">
+				</form><!-- /Filter form -->
+				<!-- clears filters on click -->
+				<button class="clearFilterButton" data-ng-click="clearFilters()">Rensa filter</button>
+				<div>
+					<!-- message that only shows if the user hasn't added any books -->
+					<p class="message" data-ng-hide="bookList.books.length">Inga böcker inlagda</p>
+					<!-- show all books with filtering and sort order -->
+					<div class="bookList" data-ng-repeat="book in bookList.books | filter: filterQuery | filter: filters | orderBy: sortBy as filteredBooks">
+						<div id="{{ book._id }}">
+							<p class="moreButton" data-ng-click="showMore(book._id)">&#8942;</p>
+							<h3 class="editable title">{{ book.title }}</h3>
+							<p class="smallPrint">{{ book.author }}</p>
+							<div class="infoContainer">
+								<!-- on click check if the field is editable, only filter result if it isn't -->
+								<div class="gradeContainer">Betyg: <span class="editable grade" data-ng-click="checkStatus('grade', book.grade)">{{ book.grade }}</span></div>
+								<!-- on click check if the field is editable, only filter result if it isn't -->
+								<div class="authorContainer">Författare: <span class="editable author" data-ng-click="checkStatus('author', book.author)">{{ book.author }}</span></div>
+								<h4>Recension</h4>
+								<p class="editable review">{{ book.review }}</p>
+								<!-- on click check if the field is editable, only filter result if it isn't -->
+								<div class="genreContainer">Genre: <span class="editable genre" data-ng-click="checkStatus('genre', book.genre)">{{ book.genre }}</span></div>
+								<div class="doneContainer">Utläst: <span class="editable done">{{ book.done | date: "yyyy-MM-dd" }}</span></div>
+								<p class="comment">Senast ändrad: {{ book.edited | date: "yyyy-MM-dd" }}</p>
+								<p class="deleteButton" data-ng-click="deleteBook(book._id)">&#10799;</p>
+								<button class="editButton" data-ng-click="editBook(book._id)">Redigera</button>
+								<button class="saveButton" data-ng-click="saveBook(book._id)">Spara</button>
+							</div>
+						</div>
+					</div>
+					<!-- message that only shows if there's no books matching the filtering -->
+					<p class="message" data-ng-hide="filteredBooks.length">Tyvärr, inga böcker matchar din sökning.</p>
+				</div>
+			</section>

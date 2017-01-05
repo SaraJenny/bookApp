@@ -1,0 +1,514 @@
+ /* Sara Petersson - JavaScriptbaserad webbutveckling DT162G */
+
+/*********************
+§RESET
+*********************/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, main,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, main, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+
+/*****************************************************************************
+§BASE
+*****************************************************************************/
+
+html {
+	height: 100%;
+}
+
+body {
+	font-size: 16px;
+	font-family: sans-serif;
+	height: 100%;
+	color: #232625;
+	background-color: #f0f0f0;
+	line-height: 1.5em;
+	position: relative;
+}
+
+main {
+	min-height: 100%;
+	margin: 0 1em;
+}
+
+main:after {
+	content: "";
+	display: block;
+	height: 3em;
+}
+
+#mainContent {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+footer {
+	background-color: #F0AD44;
+	padding: 1em;
+	color: #fff;
+	text-align: center;
+	font-size: .8em;
+	height: 3em;
+}
+
+/* Döljer element visuellt samtidigt som skärmläsare kan läsa av dem */
+.hidden {
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+
+
+
+
+
+
+
+/*****************************************************************************
+§HEADER
+*****************************************************************************/
+header {
+	background-color: #385052;
+	padding: 1em .5em;
+}
+
+.headerContent {
+	max-width: 800px;
+	margin: 0 auto;
+	position: relative;
+}
+
+h1 {
+	font-size: 2em;
+	text-align: center;
+	font-family: 'Bree Serif', serif;
+}
+
+/* the heart in the logo */
+.heart {
+	font-size: .85em;
+	color: #c74029;
+}
+
+header a {
+	color: #fff;
+}
+
+header a:hover {
+	text-decoration: none;
+}
+
+
+
+/*****************************************************************************
+§MENY
+*****************************************************************************/
+#toggle-nav {
+	font-size: 3em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: #fff;
+	cursor: pointer;
+}
+
+#mainmenu ul.active {
+	display: none;
+}
+
+#mainmenu ul {
+    width: 100%;
+    position: absolute;
+    top: 2.8em;
+    left: 0;
+	z-index: 1000;
+    background-color:#232625;
+}
+
+#mainmenu ul li {
+    margin: .5em 0;
+    float:none;
+    display:block;
+}
+
+#mainmenu ul li:hover {
+	background-color: #128085;
+}
+
+#mainmenu ul li:active {
+	background-color: #F0AD44;
+}
+
+#mainmenu ul p {
+    display:block;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 2.5% 5%;
+    cursor: pointer;
+}
+
+/* Maxi */
+@media screen and (min-width: 1100px) {
+	#mainmenu ul p {
+		padding: 1.5% 5%;
+	}	
+}
+
+/* Aktuell sida */
+.current {
+	background-color: #4d4d4d;
+}
+
+
+
+
+
+
+
+/*****************************************************************************
+§FORMULÄR
+*****************************************************************************/
+form {
+	margin-bottom: 1em;
+}
+
+label {
+	display: block;
+	margin: 1em 0 .2em;
+	font-weight: 700;
+}
+
+/* Förhindra chromes gula autofill-bakgrund*/
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px #fff inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: #3f3d3a;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px #fff inset;
+    -webkit-text-fill-color: #3f3d3a;
+}
+
+input, button {
+	font-size: 1em;
+	font-family: sans-serif;
+	border: 1px solid #128085;
+	padding: 3%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 93.5%;
+}
+
+/* Knappar */
+button {
+	border: none;
+	width: 100%;
+	background-color: #128085;
+	color: #fff;
+	margin-top: 1em;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #F0AD44;
+}
+
+textarea {
+	width: 92%;
+	height: 10em;
+	border: 1px solid #128085;
+	padding: 1em 4%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+select {
+	width: 100%;
+	background-color: #fff;
+	font-size: 1em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+   	padding: 3%;
+	border: 1px solid #128085;
+	margin-bottom: 1em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+
+
+
+
+/******************************************
+§MAINCONTENT: 
+*******************************************/
+
+/* info-button */
+.moreButton {
+	float: right;
+	font-size: 2em;
+	color: #128085;
+}
+
+.bookList {
+	border-bottom: 1px dashed #385052;
+	padding-bottom: 1em;
+}
+
+/* editable fields */
+.editField {
+	border: 1px dotted #385052;
+	padding: .2em .5em;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.gradeContainer, .authorContainer, .genreContainer, .doneContainer {
+	font-weight: bold;
+}
+
+.grade, .author, .genre, .done {
+	font-weight: normal;
+	cursor: pointer;
+}
+
+.grade, .author, .genre {
+	color: #128085;
+}
+
+.grade:hover, .author:hover, .genre:hover {
+	text-decoration: underline;
+}
+
+.gradeContainer, .authorContainer, .review, .genreContainer, .doneContainer {
+	margin-bottom: .5em;
+}
+
+.gradeContainer {
+	margin-top: .5em;
+}
+
+.review {
+	font-style: italic;
+}
+
+.comment {
+	font-style: italic;
+}
+
+.smallPrint {
+	text-align: center;
+	font-size: .7em;
+	line-height: 1.2em;
+}
+
+.infoContainer {
+	position: relative;
+}
+
+.deleteButton {
+	position: absolute;
+	right: 0;
+	bottom: 1.4em;
+	font-size: 3em;
+	color: #C74029
+}
+
+@media screen and (min-width: 500px) {
+	.deleteButton {
+		bottom: 1.9em;
+	}
+}
+
+.noLinking {
+	color: #232625;
+}
+
+.noLinking:hover {
+	text-decoration: none;
+}
+
+/* Meddelande */
+.successMessage {
+	background-color: rgba(41,199,130, .8);
+	text-align: center;
+	padding: 1em 2%;
+}
+
+.errorMessageAlert {
+	background-color: rgba(199,64,41, .8);
+	text-align: center;
+	padding: 1em 2%;
+}
+
+
+
+
+/******************************************
+§MAINCONTENT: 
+*******************************************/
+
+
+
+
+
+
+
+
+
+
+/*****************************************************************************
+§MAINCONTENT: TEXT
+*****************************************************************************/
+h2 {
+	font-size: 1.3em;
+	color: #385052;
+	text-align: center;
+	padding: 1em 0;
+	font-weight: 700;
+}
+
+@media screen and (min-width: 500px) {
+	h2 {
+		font-size: 2em;
+	}
+}
+
+h3 {
+	font-size: .9em;
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 1em;
+	font-weight: 700;
+	color: #c74029;
+}
+
+h4 {
+	font-weight: 700;
+}
+
+p+p {
+	margin-top: 1em;
+}
+
+a {
+	text-decoration: none;
+	color: #128085;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* Felmeddelande */
+.errorMessage {
+	margin-top: .3em;
+	color: #f44336;
+	font-size: .9em;
+	text-align: center;
+	font-weight: normal;
+}
+
+/* Meddelanden */
+.message {
+	text-align: center;
+	margin-top: 1em;
+	font-style: italic;
+}
+
+
+
+
+
+
+/******************************************
+§
+*******************************************/
+
+
+
+
+/* Rensa filter-knapp */
+.clearFilterButton {
+	margin-top: 0;
+	width: auto;
+	font-size: .8em;
+	padding: .7em 1.4em;
+}
+
+@media screen and (min-width: 500px) {
+	.clearFilterButton {
+		padding: 1em 2em;
+	}
+}
+
+/* Book-info */
+.infoContainer {
+	display: none;
+}
+
+.infoContainer .saveButton {
+	display: none;
+}
+
+.moreButton, .deleteButton {
+	cursor: pointer;
+}

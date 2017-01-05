@@ -1,0 +1,24 @@
+			<section class="container" data-ng-controller="BooksCreateController as createCtrl">
+				<h2>Lägg till bok</h2>
+				<!-- Add book form: with ng-model on fields to connect with $scope -->
+				<form name="addBookForm" novalidate>
+					<label for="title">Titel</label>
+					<input type="text" name="title" id="title" data-ng-model="title">
+					<label for="author">Författare</label>
+					<input type="text" name="author" id="author" data-ng-model="author">
+					<div class="gradeContainer">
+						<label for="grade">Betyg</label>
+						<select id="grade" data-ng-model="grade">
+							<!-- Loop grades from 0 to 10 -->
+							<option data-ng-repeat="n in [].constructor(11) track by $index" value="{{ $index }}">{{ $index }}</option>
+						</select>
+					</div>
+					<label for="genre">Genre</label>
+					<input type="text" name="genre" id="genre" data-ng-model="genre">
+					<label for="review">Recension</label>
+					<textarea id="review" data-ng-model="review"></textarea>
+					<label for="done">Utläst</label>
+					<input type="date" name="done" id="done" data-ng-model="done">
+					<button class="addButton" data-ng-click="addBook()">Lägg till</button>
+				</form>
+			</section>
